@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>رحلة إلى مدرسة المستقبل | ساعة من الذكاء الاصطناعي</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{ font-family: "Tajawal", sans-serif; }
+
+    /* ✅ تحسين وضوح القوائم المنسدلة */
+    html { color-scheme: dark; }
+    select{
+      color: #fff !important;
+      background: rgba(255,255,255,.10) !important;
+      border-color: rgba(255,255,255,.18) !important;
+    }
+    select option{
+      background: #1b0b2a !important;
+      color: #ffffff !important;
+    }
+    select option:checked{
+      background: #3b145f !important;
+    }
+
+    .glass{ background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); }
+    .soft-shadow{ box-shadow: 0 18px 60px rgba(0,0,0,.28); }
+    .ring-soft{ outline: 3px solid rgba(255,255,255,.10); outline-offset: 2px; }
+    .chip input{ display:none; }
+    .chip span{ user-select:none; }
+    .chip input:checked + span{
+      background: rgba(236, 72, 153, .20);
+      border-color: rgba(236, 72, 153, .50);
+      transform: translateY(-1px);
+    }
+    .fade-in{ animation: fadeIn .35s ease-out; }
+    @keyframes fadeIn{ from{opacity:0; transform: translateY(6px);} to{opacity:1; transform: translateY(0);} }
+  </style>
+</head>
+
+<body class="min-h-screen text-white">
+  <!-- Background -->
+  <div class="fixed inset-0 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#3b135f] via-[#7c1b6b] to-[#f43f5e] opacity-95"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.16),transparent_40%),radial-gradient(circle_at_80%_30%,rgba(59,130,246,0.18),transparent_40%),radial-gradient(circle_at_50%_90%,rgba(236,72,153,0.18),transparent_45%)]"></div>
+  </div>
+
+  <header class="max-w-6xl mx-auto px-4 pt-10 pb-6">
+    <div class="glass soft-shadow rounded-3xl p-6 md:p-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+        <!-- Title + Logo -->
+        <div class="flex items-start gap-4">
+          <!-- ضع شعارك هنا (ضع ملف logo.png بجانب index.html) -->
+          <img
+            src="logo.png"
+            alt="شعار الملتقى التفاعلي"
+            class="w-14 h-14 rounded-2xl bg-white/80 p-1 ring-1 ring-white/30 object-contain"
+            onerror="this.style.display='none'"
+          />
+
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15">
+              <span class="text-xl">🚀</span>
+              <span class="text-sm md:text-base opacity-95">ساعة من الذكاء الاصطناعي</span>
+            </div>
+
+            <h1 class="mt-3 text-2xl md:text-4xl font-extrabold leading-snug">
+              رحلة إلى مدرسة المستقبل
+            </h1>
+            <p class="mt-2 text-white/85 leading-relaxed">
+              اكتب برومبت قوي، ولّد صورة عبر Copilot، ثم شارك الصورة مع النص في نموذج المشاركة.
+            </p>
+          </div>
+        </div>
+
+        <!-- Header Buttons -->
+        <div class="flex gap-3 flex-wrap">
+          <button id="btnQuick" class="ring-soft px-4 py-2 rounded-2xl bg-white/10 hover:bg-white/15 active:scale-[.99] transition">
+            ⚡ برومبت سريع
+          </button>
+
+          <a id="btnHourAIHeader" target="_blank" rel="noopener"
+             class="ring-soft px-4 py-2 rounded-2xl bg-white/10 hover:bg-white/15 active:scale-[.99] transition inline-flex items-center gap-2"
+             href="#">
+            ⏱️ رابط ساعة الذكاء
+          </a>
+
+          <button id="btnPrint" class="ring-soft px-4 py-2 rounded-2xl bg-white/10 hover:bg-white/15 active:scale-[.99] transition">
+            🖨️ طباعة التعليمات
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 pb-14">
+    <div class="grid lg:grid-cols-3 gap-5">
+
+      <!-- Steps -->
+      <section class="glass soft-shadow rounded-3xl p-6 lg:col-span-1">
+        <h2 class="text-xl font-bold mb-4">🧭 خطوات المشاركة</h2>
+
+        <ol class="space-y-3 text-white/90 leading-relaxed">
+          <li class="flex gap-3">
+            <span class="mt-1 w-7 h-7 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-sm">1</span>
+            <div>
+              <div class="font-bold">تخيّل مدرسة المستقبل</div>
+              <div class="text-sm text-white/75">فصل ذكي، روبوت مساعد، هولوغرامات تعليمية…</div>
+            </div>
+          </li>
+
+          <li class="flex gap-3">
+            <span class="mt-1 w-7 h-7 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-sm">2</span>
+            <div>
+              <div class="font-bold">اكتب البرومبت</div>
+              <div class="text-sm text-white/75">استخدم المولّد هنا لتكوين وصف واضح ومحدد.</div>
+            </div>
+          </li>
+
+          <li class="flex gap-3">
+            <span class="mt-1 w-7 h-7 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-sm">3</span>
+            <div>
+              <div class="font-bold">ولّد الصورة عبر Copilot</div>
+              <div class="text-sm text-white/75">افتح Copilot من الزر داخل التطبيق.</div>
+            </div>
+          </li>
+
+          <li class="flex gap-3">
+            <span class="mt-1 w-7 h-7 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-sm">4</span>
+            <div>
+              <div class="font-bold">شارك</div>
+              <div class="text-sm text-white/75">ارفِق الصورة + البرومبت في نموذج المشاركة.</div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="mt-6 p-4 rounded-2xl bg-black/20 border border-white/10 text-sm text-white/85">
+          ✅ تذكير مهم: اجعل الصورة <b>بدون نص</b> و<b>بدون شعارات</b> و<b>بدون علامات مائية</b>.
+        </div>
+
+        <div class="mt-4 p-4 rounded-2xl bg-black/20 border border-white/10 text-sm text-white/85">
+          🔗 مرجع الفعالية:
+          <a id="hourAiLinkSide" class="underline text-white" target="_blank" rel="noopener" href="#">
+            https://code.org/ar/hour-of-ai
+          </a>
+        </div>
+      </section>
+
+      <!-- Prompt Builder -->
+      <section class="glass soft-shadow rounded-3xl p-6 lg:col-span-2">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <h2 class="text-xl font-bold">🧠 مولّد البرومبت</h2>
+
+          <div class="flex items-center gap-2 bg-white/10 border border-white/15 rounded-2xl p-1 w-fit">
+            <button data-lang="en" class="langBtn px-3 py-1.5 rounded-xl text-sm hover:bg-white/10 transition">English</button>
+            <button data-lang="ar" class="langBtn px-3 py-1.5 rounded-xl text-sm hover:bg-white/10 transition">العربية</button>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <div class="p-4 rounded-2xl bg-black/15 border border-white/10">
+            <label class="block text-sm text-white/80 mb-2">📍 المكان</label>
+            <select id="place" class="w-full rounded-xl px-3 py-2 outline-none">
+              <option value="فصل ذكي في مدرسة مستقبلية">فصل ذكي في مدرسة مستقبلية</option>
+              <option value="مختبر STEM متطور داخل مدرسة ذكية">مختبر STEM متطور داخل مدرسة ذكية</option>
+              <option value="مكتبة رقمية مستقبلية مليئة بالشاشات الذكية">مكتبة رقمية مستقبلية</option>
+              <option value="ساحة مدرسية تطير فيها طائرات درون تعليمية">ساحة مدرسية مستقبلية</option>
+              <option value="ركن AR/VR للتعلم بالواقع الممتد">ركن AR/VR</option>
+            </select>
+
+            <label class="block text-sm text-white/80 mt-4 mb-2">🎯 محور/مادة</label>
+            <select id="subject" class="w-full rounded-xl px-3 py-2 outline-none">
+              <option value="الرياضيات">الرياضيات</option>
+              <option value="العلوم">العلوم</option>
+              <option value="الروبوتات">الروبوتات</option>
+              <option value="البرمجة">البرمجة</option>
+              <option value="التعلم التعاوني">التعلم التعاوني</option>
+            </select>
+
+            <label class="block text-sm text-white/80 mt-4 mb-2">🧩 عناصر ذكية (اختر ما يناسبك)</label>
+            <div class="flex flex-wrap gap-2">
+              <label class="chip">
+                <input type="checkbox" value="روبوت معلم يشرح بلطف">
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-sm transition">
+                  🤖 روبوت معلم
+                </span>
+              </label>
+
+              <label class="chip">
+                <input type="checkbox" value="هولوغرامات تفاعلية لشرح الدروس">
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-sm transition">
+                  ✨ هولوغرام
+                </span>
+              </label>
+
+              <label class="chip">
+                <input type="checkbox" value="سبورة ذكية تعرض رسومات ثلاثية الأبعاد">
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-sm transition">
+                  🧠 سبورة ذكية
+                </span>
+              </label>
+
+              <label class="chip">
+                <input type="checkbox" value="طلاب يستخدمون أجهزة لوحية تعليمية">
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-sm transition">
+                  📱 أجهزة لوحية
+                </span>
+              </label>
+
+              <label class="chip">
+                <input type="checkbox" value="زاوية AR/VR للتعلم بالواقع الممتد">
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-sm transition">
+                  🥽 AR/VR
+                </span>
+              </label>
+
+              <label class="chip">
+                <input type="checkbox" value="مساعدات آلية صغيرة (درون/روبوتات) تقدم الدعم">
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-sm transition">
+                  🛸 درون/مساعدات
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-black/15 border border-white/10">
+            <label class="block text-sm text-white/80 mb-2">🎨 الأسلوب</label>
+            <select id="style" class="w-full rounded-xl px-3 py-2 outline-none">
+              <option value="realistic yet cute 3D render">3D واقعي لطيف</option>
+              <option value="highly detailed 3D illustration, soft depth of field">لوحة 3D تفصيلية</option>
+              <option value="cinematic lighting, ultra detailed">سينمائي وتفاصيل عالية</option>
+              <option value="soft pastel illustration, dreamy atmosphere">باستيل حالم</option>
+            </select>
+
+            <label class="block text-sm text-white/80 mt-4 mb-2">🌈 ألوان/أجواء</label>
+            <select id="mood" class="w-full rounded-xl px-3 py-2 outline-none">
+              <option value="bright friendly atmosphere, pastel neon accents">إضاءة لطيفة + باستيل نيون</option>
+              <option value="warm light, soft glow, futuristic classroom vibe">دفء ولمعة ناعمة</option>
+              <option value="cool futuristic tones, clean modern design">نغمات مستقبلية باردة</option>
+            </select>
+
+            <label class="block text-sm text-white/80 mt-4 mb-2">🚫 استبعاد تلقائي (مهم)</label>
+            <div class="text-sm text-white/85 bg-white/5 border border-white/10 rounded-xl px-3 py-2">
+              no text, no logos, no watermark
+            </div>
+
+            <label class="block text-sm text-white/80 mt-4 mb-2">📝 ملاحظة إضافية (اختياري)</label>
+            <input id="note" type="text" placeholder="مثال: طلاب يبتسمون، تعاون جماعي، نشاط رياضي..." class="w-full bg-white/10 border border-white/15 rounded-xl px-3 py-2 outline-none" />
+          </div>
+        </div>
+
+        <div class="mt-4 grid md:grid-cols-2 gap-4">
+          <!-- Prompt output -->
+          <div class="p-4 rounded-2xl bg-black/15 border border-white/10">
+            <div class="flex items-center justify-between gap-3 mb-2">
+              <label class="text-sm text-white/80">📌 البرومبت النهائي</label>
+              <div class="flex gap-2 flex-wrap justify-end">
+                <button id="btnCopy" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-sm transition">
+                  📋 نسخ
+                </button>
+                <button id="btnCopyOpen" class="px-3 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/25 border border-emerald-300/30 text-sm transition">
+                  ✅ انسخ وافتح Copilot
+                </button>
+              </div>
+            </div>
+            <textarea id="promptOut" rows="6" class="w-full bg-white/10 border border-white/15 rounded-xl p-3 outline-none text-sm leading-relaxed"></textarea>
+            <div id="toast" class="hidden mt-2 text-sm text-emerald-200 fade-in">تم النسخ ✅</div>
+          </div>
+
+          <!-- Links (بدون QR) -->
+          <div class="p-4 rounded-2xl bg-black/15 border border-white/10">
+            <div class="grid sm:grid-cols-2 gap-4">
+
+              <!-- Copilot -->
+              <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                <div class="flex items-center justify-between gap-3">
+                  <div>
+                    <div class="font-bold">🔗 Copilot</div>
+                    <div class="text-sm text-white/75">افتح Copilot من الزر.</div>
+                  </div>
+                  <a id="copilotBtn" target="_blank" rel="noopener"
+                     class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 transition text-sm"
+                     href="#">
+                    فتح ↗
+                  </a>
+                </div>
+
+                <div class="mt-3 text-sm text-white/85">
+                  <div class="font-bold mb-1">الرابط:</div>
+                  <div class="bg-white/10 border border-white/15 rounded-xl px-3 py-2 break-all" id="copilotUrlText"></div>
+                </div>
+              </div>
+
+              <!-- Hour of AI -->
+              <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                <div class="flex items-center justify-between gap-3">
+                  <div>
+                    <div class="font-bold">⏱️ ساعة الذكاء</div>
+                    <div class="text-sm text-white/75">افتح صفحة Hour of AI من الزر.</div>
+                  </div>
+                  <a id="hourAiBtn" target="_blank" rel="noopener"
+                     class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 transition text-sm"
+                     href="#">
+                    فتح ↗
+                  </a>
+                </div>
+
+                <div class="mt-3 text-sm text-white/85">
+                  <div class="font-bold mb-1">الرابط:</div>
+                  <div class="bg-white/10 border border-white/15 rounded-xl px-3 py-2 break-all" id="hourAiUrlText"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="mt-4 p-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white/85">
+              💡 تلميح: بعد ما تلصق البرومبت في Copilot، اطلب: <b>Generate an image</b> أو <b>Create an image</b>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist -->
+        <div class="mt-4 p-4 rounded-2xl bg-black/15 border border-white/10">
+          <div class="flex items-center justify-between gap-3 flex-wrap">
+            <div class="font-bold">✅ قائمة جاهزية قبل الإرسال</div>
+            <div id="readyBadge" class="hidden px-3 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-300/30 text-sm fade-in">
+              أحسنت! جاهز للمشاركة 🎉
+            </div>
+          </div>
+
+          <div class="mt-3 grid md:grid-cols-2 gap-2 text-sm text-white/90">
+            <label class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2">
+              <input class="chk" type="checkbox">
+              <span>الصورة بدون نصوص.</span>
+            </label>
+            <label class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2">
+              <input class="chk" type="checkbox">
+              <span>الصورة بدون شعارات أو علامة مائية.</span>
+            </label>
+            <label class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2">
+              <input class="chk" type="checkbox">
+              <span>كتبت برومبت واضح ومحدد.</span>
+            </label>
+            <label class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2">
+              <input class="chk" type="checkbox">
+              <span>حفظت الصورة + البرومبت لرفعها في نموذج المشاركة.</span>
+            </label>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ✅ التذييل المطلوب -->
+    <footer class="mt-8 text-center text-white/80 text-sm">
+      <div class="glass rounded-2xl py-3 px-4 inline-block">
+        /منسقة ساعة برمجة أ/فاطمة هزازي ,,الملتقى التفاعلي
+      </div>
+    </footer>
+  </main>
+
+<script>
+  // ✅ روابط ثابتة
+  const COPILOT_URL = "https://copilot.microsoft.com/";
+  const HOUR_AI_URL = "https://code.org/ar/hour-of-ai";
+
+  const els = {
+    langBtns: document.querySelectorAll(".langBtn"),
+    place: document.getElementById("place"),
+    subject: document.getElementById("subject"),
+    style: document.getElementById("style"),
+    mood: document.getElementById("mood"),
+    note: document.getElementById("note"),
+    promptOut: document.getElementById("promptOut"),
+    toast: document.getElementById("toast"),
+    btnCopy: document.getElementById("btnCopy"),
+    btnCopyOpen: document.getElementById("btnCopyOpen"),
+    btnQuick: document.getElementById("btnQuick"),
+    btnPrint: document.getElementById("btnPrint"),
+
+    // Hour of AI links
+    btnHourAIHeader: document.getElementById("btnHourAIHeader"),
+    hourAiLinkSide: document.getElementById("hourAiLinkSide"),
+    hourAiBtn: document.getElementById("hourAiBtn"),
+    hourAiUrlText: document.getElementById("hourAiUrlText"),
+
+    // Copilot links
+    copilotBtn: document.getElementById("copilotBtn"),
+    copilotUrlText: document.getElementById("copilotUrlText"),
+
+    readyBadge: document.getElementById("readyBadge"),
+    chks: document.querySelectorAll(".chk"),
+    chips: document.querySelectorAll(".chip input"),
+  };
+
+  let LANG = "en";
+
+  function getSelectedElements(){
+    const picked = [];
+    els.chips.forEach(ch => { if(ch.checked) picked.push(ch.value); });
+    return picked;
+  }
+
+  function buildPrompt(){
+    const place = els.place.value.trim();
+    const subject = els.subject.value.trim();
+    const style = els.style.value.trim();
+    const mood = els.mood.value.trim();
+    const note = els.note.value.trim();
+    const features = getSelectedElements();
+    const neg = "no text, no logos, no watermark";
+
+    if(LANG === "ar"){
+      const feats = features.length ? "، " + features.join("، ") : "";
+      const extra = note ? "، " + note : "";
+      return `داخل ${place}، طلاب يتعلمون ${subject}${feats}، أجواء ${mood}، أسلوب ${style}، تفاصيل فائقة، إضاءة سينمائية، جودة عالية، ${neg}${extra}`;
+    }
+
+    const feats = features.length ? ", " + features.join(", ") : "";
+    const extra = note ? ", " + note : "";
+    return `Inside a ${place}, students learning ${subject}${feats}, ${mood}, ${style}, cinematic light, ultra detail, high quality, ${neg}${extra}`;
+  }
+
+  function refresh(){
+    els.promptOut.value = buildPrompt();
+  }
+
+  async function copyText(text){
+    try{
+      await navigator.clipboard.writeText(text);
+      showToast();
+      return true;
+    }catch(e){
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      ta.remove();
+      showToast();
+      return true;
+    }
+  }
+
+  function showToast(){
+    els.toast.classList.remove("hidden");
+    setTimeout(()=> els.toast.classList.add("hidden"), 1200);
+  }
+
+  function initLinks(){
+    // Copilot
+    els.copilotBtn.href = COPILOT_URL;
+    els.copilotUrlText.textContent = COPILOT_URL;
+
+    // Hour of AI
+    els.btnHourAIHeader.href = HOUR_AI_URL;
+    els.hourAiLinkSide.href = HOUR_AI_URL;
+    els.hourAiBtn.href = HOUR_AI_URL;
+    els.hourAiUrlText.textContent = HOUR_AI_URL;
+  }
+
+  function checkReady(){
+    const ok = [...els.chks].every(c => c.checked);
+    els.readyBadge.classList.toggle("hidden", !ok);
+  }
+
+  // Events
+  els.langBtns.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      LANG = btn.dataset.lang;
+      els.langBtns.forEach(b=> b.classList.remove("bg-white/20","border","border-white/25"));
+      btn.classList.add("bg-white/20","border","border-white/25");
+      refresh();
+    });
+  });
+
+  [els.place, els.subject, els.style, els.mood, els.note].forEach(el => el.addEventListener("input", refresh));
+  els.chips.forEach(ch => ch.addEventListener("change", refresh));
+
+  els.btnCopy.addEventListener("click", ()=> copyText(els.promptOut.value));
+
+  els.btnCopyOpen.addEventListener("click", async ()=>{
+    await copyText(els.promptOut.value);
+    window.open(COPILOT_URL, "_blank", "noopener");
+  });
+
+  els.btnQuick.addEventListener("click", ()=>{
+    els.place.value = "فصل ذكي في مدرسة مستقبلية";
+    els.subject.value = "الرياضيات";
+    els.style.value = "realistic yet cute 3D render";
+    els.mood.value = "bright friendly atmosphere, pastel neon accents";
+    els.note.value = "interactive holograms explaining math gently";
+
+    els.chips.forEach(ch => ch.checked = false);
+    const want = new Set([
+      "روبوت معلم يشرح بلطف",
+      "هولوغرامات تفاعلية لشرح الدروس",
+      "سبورة ذكية تعرض رسومات ثلاثية الأبعاد",
+      "طلاب يستخدمون أجهزة لوحية تعليمية",
+      "زاوية AR/VR للتعلم بالواقع الممتد"
+    ]);
+    els.chips.forEach(ch => { if(want.has(ch.value)) ch.checked = true; });
+
+    LANG = "en";
+    els.langBtns.forEach(b=> b.classList.remove("bg-white/20","border","border-white/25"));
+    document.querySelector('.langBtn[data-lang="en"]').classList.add("bg-white/20","border","border-white/25");
+
+    refresh();
+  });
+
+  els.btnPrint.addEventListener("click", ()=> window.print());
+  els.chks.forEach(c => c.addEventListener("change", checkReady));
+
+  // Start
+  initLinks();
+  document.querySelector('.langBtn[data-lang="en"]').classList.add("bg-white/20","border","border-white/25");
+  refresh();
+</script>
+</body>
+</html>
